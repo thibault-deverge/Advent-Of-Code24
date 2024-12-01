@@ -3,7 +3,7 @@
 	"version": "1.0.0",
 	"main": "index.js",
 	"scripts": {
-		"day01-1": "ts-node src/day01/part1.ts",
+		"day01": "ts-node src/day01/index.ts",
 		"build": "tsc"
 	},
 	"keywords": [],
