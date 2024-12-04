@@ -5,6 +5,7 @@
 	"scripts": {
 		"day01": "ts-node src/day01/index.ts",
 		"day02": "ts-node src/day02/index.ts",
+		"day03": "ts-node src/day03/index.ts",
 		"build": "tsc"
 	},
 	"keywords": [],
