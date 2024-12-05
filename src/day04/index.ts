@@ -1,5 +1,6 @@
 import { promises as fs } from "fs";
 
+/* ***** PART 1 ***** */
 const DIRECTIONS = [
 	{ dx: -1, dy: 0 }, // Up
 	{ dx: 1, dy: 0 }, // Down
@@ -41,8 +42,34 @@ function processPart1(input: string[]): number {
 	return count;
 }
 
+/* ***** PART 2 ***** */
+function processPart2(input: string[]): number {
+	const numRows = input.length;
+	const numCols = input[0].length;
+	let count = 0;
+
+	for (let i = 0; i < numRows; i++) {
+		for (let j = 0; j < numCols; j++) {
+			if (input[i][j] === "A") {
+				const el = input[i][j];
+				const words = [];
+
+				words.push(`${input[i - 1]?.[j - 1]}${el}${input[i + 1]?.[j + 1]}`);
+				words.push(`${input[i + 1]?.[j - 1]}${el}${input[i - 1]?.[j + 1]}`);
+
+				if (/MAS|SAM/.test(words[0]) && /MAS|SAM/.test(words[1])) {
+					count++;
+				}
+			}
+		}
+	}
+	return count;
+}
+
+/* ***** MAIN ***** */
 (async function main() {
 	const input = (await fs.readFile("src/day04/data/input.txt", "utf-8")).split("\n");
 
 	console.log(processPart1(input));
+	console.log(processPart2(input));
 })();
