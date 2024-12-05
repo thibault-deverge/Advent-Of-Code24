@@ -1,4 +1,3 @@
-import { match } from "assert";
 import { promises as fs } from "fs";
 
 const REG_INSTRUCTION = /mul\((\d{1,3}),(\d{1,3})\)/g;
@@ -10,7 +9,6 @@ function processPart1(fileContent: string): number {
 	let result = 0;
 
 	for (const match of regMatches) {
-		console.log(match);
 		result += Number(match[1]) * Number(match[2]);
 	}
 	return result;
